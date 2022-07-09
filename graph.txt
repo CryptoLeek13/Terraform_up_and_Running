@@ -1,0 +1,14 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_instance.terraformUP (expand)" [label = "aws_instance.terraformUP", shape = "box"]
+		"[root] aws_security_group.terraformUPSG (expand)" [label = "aws_security_group.terraformUPSG", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] aws_instance.terraformUP (expand)" -> "[root] aws_security_group.terraformUPSG (expand)"
+		"[root] aws_security_group.terraformUPSG (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.terraformUP (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+
